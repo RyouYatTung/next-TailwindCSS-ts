@@ -1,5 +1,5 @@
 import Container from "../Container";
-import Logo from "./Logo"
+import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 
@@ -12,7 +12,7 @@ const Nav = () => {
             <Logo />
             <Search />
             <UserMenu />
-            </div>  
+          </div>
         </Container>
       </div>
     </div>
