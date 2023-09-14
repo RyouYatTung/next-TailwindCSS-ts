@@ -17,8 +17,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <ClientOnly>
-          <Modal />
-        <Nav />
+          <Modal isOpen />
+          <Nav />
         </ClientOnly>
         {children}
       </body>
