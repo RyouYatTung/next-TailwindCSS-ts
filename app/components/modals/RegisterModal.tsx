@@ -10,7 +10,15 @@ const RegisterModal = () => {
 const RegisterModal = useRegisterModal()
 const [isLoading,setIsloading]=useState(false);
 
-
+const {register,handleSubmit,formState:{
+    errors,
+}}=useForm<FieldValues>({
+    defaultValues:{
+        name:"",
+        email:"",
+        password:""
+    }
+})
 
   return (
     <div>RegisterModal</div>
