@@ -76,7 +76,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
               {/* footer */}
               <div className="flex flex-row gap-2 p-6">
                 <div className="flex flex-row items-center gap-4 w-full">
+                  {secondaryAction && secondaryActionLabel && (
                   <Button outline label={secondaryActionLabel} disabled={disabled} onClick={handleSecondaryAction}/>
+                  )}
                   <Button label={actionLabel} disabled={disabled} onClick={handleSubmit}/>
                 </div>
               </div>
