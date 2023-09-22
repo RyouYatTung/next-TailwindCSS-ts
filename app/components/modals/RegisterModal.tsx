@@ -8,7 +8,8 @@ import { useState } from "react";
 import { error, log } from "console";
 import Modal from "./Modal";
 import Heading from "../nav/Heading";
-import Input from "../inputs/input";
+import Input from "../inputs/Input";
+
 
 const RegisterModal = () => {
   const RegisterModal = useRegisterModal();
@@ -46,6 +47,8 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4">
       <Heading title="Welcome" subtitle="Create an account" />
       <Input id="email" label="Email" disable={isLoading} register={register} errors={errors} required  />
+      <Input id="name" label="Name" disable={isLoading} register={register} errors={errors} required  />
+      <Input id="password" label="Password" type="password" disable={isLoading} register={register} errors={errors} required  />
     </div>
   )
 
