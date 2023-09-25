@@ -1,5 +1,5 @@
 "use client"
-import {Toaster} from "react-hook-toast";
+import { Toaster } from 'react-hot-toast';
 
 const TOsterProvider = () => {
   return (

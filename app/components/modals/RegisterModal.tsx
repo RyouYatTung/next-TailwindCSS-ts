@@ -9,6 +9,8 @@ import { error, log } from "console";
 import Modal from "./Modal";
 import Heading from "../nav/Heading";
 import Input from "../inputs/Input";
+import { toast } from "react-hot-toast";
+import Button from "../Button";
 
 
 const RegisterModal = () => {
@@ -36,7 +38,7 @@ const RegisterModal = () => {
         RegisterModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("error")
       })
       .finally(() => {
         setIsloading(false);
@@ -50,9 +52,24 @@ const RegisterModal = () => {
       <Input id="name" label="Name" disable={isLoading} register={register} errors={errors} required  />
       <Input id="password" label="Password" type="password" disable={isLoading} register={register} errors={errors} required  />
     </div>
-  )
+  );
 
-  return <Modal disabled={isLoading} isOpen={RegisterModal.isOpen} title="Regiser" actionLabel="Continue" onClose={RegisterModal.onClose} onSubmit={handleSubmit(onSubmit)} body={bodyContent} />;
+  const footerContent=(
+      <div className="flex flex-col gap-4 mt-3">
+        <hr />
+        <Button outline label="Continue with Google" icon={FcGoogle} onClick={()=>{}} />
+        <Button outline label="Continue with Github" icon={AiFillGithub} onClick={()=>{}} />
+
+        <div className="text-neutral-500 text-center mt-4 font-light">
+          <div className="justify-center flex flex-row items-center gap-2">
+            <div className="">Already have an account?</div>
+            <div className="text-neutral-800 cursor-pointer hover:underline" onClick={RegisterModal.onClose}>Log in</div>
+          </div>
+        </div>
+      </div>
+    )
+
+  return <Modal disabled={isLoading} isOpen={RegisterModal.isOpen} title="Regiser" actionLabel="Continue" onClose={RegisterModal.onClose} onSubmit={handleSubmit(onSubmit)} body={bodyContent} footer={footerContent} />;
 };
 
 export default RegisterModal;
