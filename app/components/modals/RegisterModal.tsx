@@ -5,7 +5,6 @@ import { FcGoogle } from "react-icons/fc";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useRegisterModal from "../../hooks/useRegisterModal";
 import { useState } from "react";
-import { error, log } from "console";
 import Modal from "./Modal";
 import Heading from "../nav/Heading";
 import Input from "../inputs/Input";
