@@ -7,11 +7,10 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 
 interface NavProps {
-  currentUser?:SafeUser | null;
+  currentUser?: SafeUser | null;
 }
 
-const Nav:React.FC<NavProps> = ({currentUser}) => {
-  
+const Nav: React.FC<NavProps> = ({ currentUser }) => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div className="py-4 border-b-[1px]">

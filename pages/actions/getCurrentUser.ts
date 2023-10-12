@@ -22,11 +22,11 @@ export default async function getCurrentUser() {
       return null;
     }
 
-    return{
+    return {
       ...currentUser,
-      createdAt:currentUser.createdAt.toISOString(),
-      updatedAt:currentUser.updatedAt.toDateString(),
-      emailVerified:currentUser.emailVerified?.toISOString()||null
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.updatedAt.toDateString(),
+      emailVerified: currentUser.emailVerified?.toISOString() || null,
     };
   } catch (error: any) {
     return null;
