@@ -1,4 +1,5 @@
 "use client";
+
 import { signIn } from "next-auth/react";
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
@@ -94,12 +95,12 @@ const LoginModal = () => {
 
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="justify-center flex flex-row items-center gap-2">
-          <div className="">Already have an account?</div>
+          <div className="">First time useing Airbnb?</div>
           <div
             className="text-neutral-800 cursor-pointer hover:underline"
             onClick={RegisterModal.onClose}
           >
-            Log in
+            Create an account
           </div>
         </div>
       </div>
