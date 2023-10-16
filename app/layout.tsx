@@ -15,11 +15,7 @@ export const metadata: Metadata = {
   description: "Airbnb clone",
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const currentUser = await getCurrentUser();
 
   return (
