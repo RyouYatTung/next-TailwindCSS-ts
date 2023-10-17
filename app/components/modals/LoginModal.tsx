@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useRegisterModal from "../../hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Modal from "./Modal";
 import Heading from "../nav/Heading";
 import Input from "../inputs/Input";
@@ -53,53 +53,30 @@ const LoginModal = () => {
     });
   };
 
+  const toggle = useCallback(() => {
+    LoginModal.onClose();
+    RegisterModal.onOpen();
+  }, [LoginModal, RegisterModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome back" subtitle="login to your account" />
-      <Input
-        id="email"
-        label="Email"
-        disable={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
+      <Input id="email" label="Email" disable={isLoading} register={register} errors={errors} required />
 
-      <Input
-        id="password"
-        label="Password"
-        type="password"
-        disable={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
+      <Input id="password" label="Password" type="password" disable={isLoading} register={register} errors={errors} required />
     </div>
   );
 
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
-      <Button
-        outline
-        label="Continue with Google"
-        icon={FcGoogle}
-        onClick={() => {}}
-      />
-      <Button
-        outline
-        label="Continue with Github"
-        icon={AiFillGithub}
-        onClick={() => {}}
-      />
+      <Button outline label="Continue with Google" icon={FcGoogle} onClick={() => {}} />
+      <Button outline label="Continue with Github" icon={AiFillGithub} onClick={() => {}} />
 
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="justify-center flex flex-row items-center gap-2">
           <div className="">First time useing Airbnb?</div>
-          <div
-            className="text-neutral-800 cursor-pointer hover:underline"
-            onClick={RegisterModal.onClose}
-          >
+          <div className="text-neutral-800 cursor-pointer hover:underline" onClick={toggle}>
             Create an account
           </div>
         </div>
@@ -107,18 +84,7 @@ const LoginModal = () => {
     </div>
   );
 
-  return (
-    <Modal
-      disabled={isLoading}
-      isOpen={LoginModal.isOpen}
-      title="Login"
-      actionLabel="Continue"
-      onClose={LoginModal.onClose}
-      onSubmit={handleSubmit(onSubmit)}
-      body={bodyContent}
-      footer={footerContent}
-    />
-  );
+  return <Modal disabled={isLoading} isOpen={LoginModal.isOpen} title="Login" actionLabel="Continue" onClose={LoginModal.onClose} onSubmit={handleSubmit(onSubmit)} body={bodyContent} footer={footerContent} />;
 };
 
 export default LoginModal;
